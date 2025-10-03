@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  marine-ai:
+    build: .
+    container_name: marine-health-ai
+    environment:
+      - GROK_API_KEY=${GROK_API_KEY}
+      - LETTERS_PER_DAY=3
+      - AUTO_SCHEDULE=true
+      - OUTPUT_FORMAT=both
+    volumes:
+      # Mount output directory to persist generated letters
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - ./config:/app/config
+      # Mount .env file for configuration
+      - ./.env:/app/.env
+    restart: unless-stopped
+    
+  # Optional: Scheduler service for automated daily generation
+  marine-ai-scheduler:
+    build: .
+    container_name: marine-health-ai-scheduler
+    command: python scheduler.py
+    environment:
+      - GROK_API_KEY=${GROK_API_KEY}
+      - LETTERS_PER_DAY=3
+      - AUTO_SCHEDULE=true
+    volumes:
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - ./config:/app/config
+      - ./.env:/app/.env
+    restart: unless-stopped
+    depends_on:
+      - marine-ai
+
+networks:
+  default:
+    name: marine-ai-network

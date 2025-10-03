@@ -1,0 +1,43 @@
+{
+  "organizations": {
+    "policy_makers": {
+      "name": "Ocean Policy Institute",
+      "target_audience": "Government Officials, Policy Makers, Environmental Agencies",
+      "tone": "formal, evidence-based, diplomatic",
+      "focus_areas": [
+        "policy reform",
+        "international cooperation",
+        "regulatory frameworks",
+        "funding allocation"
+      ],
+      "call_to_action": "implement stronger marine protection policies and increase funding",
+      "contact_info": "policy@oceaninstitute.org | +1-555-OCEAN-1"
+    },
+    "industry_leaders": {
+      "name": "Sustainable Marine Industries Coalition",
+      "target_audience": "Corporate Leaders, Manufacturing, Shipping, Energy Companies",
+      "tone": "business-focused, solution-oriented, collaborative",
+      "focus_areas": [
+        "sustainable practices",
+        "green technology",
+        "corporate responsibility",
+        "economic benefits"
+      ],
+      "call_to_action": "adopt sustainable practices and invest in clean marine technologies",
+      "contact_info": "partnerships@marinecoalition.org | +1-555-OCEAN-2"
+    },
+    "communities": {
+      "name": "Coastal Communities Alliance",
+      "target_audience": "Local Communities, Volunteers, Community Leaders, Residents",
+      "tone": "passionate, community-focused, inspiring",
+      "focus_areas": [
+        "grassroots action",
+        "local impact",
+        "community engagement",
+        "educational programs"
+      ],
+      "call_to_action": "join local conservation efforts and engage in community marine protection",
+      "contact_info": "community@coastalalliance.org | +1-555-OCEAN-3"
+    }
+  }
+}

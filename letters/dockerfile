@@ -1,0 +1,36 @@
+# Marine Health AI Letter Generator - Docker Container
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first for better Docker layer caching
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application files
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p output logs config templates
+
+# Set permissions
+RUN chmod +x run.sh
+RUN chmod +x marine_ai.py
+
+# Environment variables
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+
+# Default command
+CMD ["python", "marine_ai.py"]
+
+# For interactive use, you can override with:
+# docker run -it marine-health-ai bash
