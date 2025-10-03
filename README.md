@@ -89,7 +89,7 @@ OPENROUTER_API_KEY="YOUR_OPENROUTER_API_KEY"
 
 **Run the Agent:**
 ```bash
-python dheu-agent.py
+python marine-ai.py
 ```
 
 *(Note: If you combine both agents into one file, ensure the main() function is called correctly for this part of the script).*
